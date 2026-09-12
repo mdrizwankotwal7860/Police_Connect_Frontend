@@ -1,0 +1,414 @@
+POLICE CONNECT
+Online Police Complaint Management System — Frontend PRD
+Frontend-only Product Requirements Document | Version 1.0
+Item
+Specification
+Scope
+Frontend only — no backend implementation
+Recommended Stack
+Next.js + TypeScript + Tailwind CSS + shadcn/ui
+Forms
+React Hook Form + Zod
+Charts
+Recharts
+Icons
+Lucide React
+Data
+Realistic local mock/seed data and mock service layer
+Responsive
+Mobile, tablet and desktop
+1. Product Overview
+Police Connect is a polished, responsive frontend for an online police complaint management and tracking platform. The frontend should simulate complete citizen, police officer, station-admin and super-admin experiences using realistic mock data. It must be architected so a real API can be connected later without redesigning the UI.
+2. Frontend Goals
+Create a trustworthy, modern public-safety/government-style interface.
+Make complaint submission simple and mobile-friendly.
+Provide clear complaint tracking and status visibility.
+Provide professional police operations dashboards.
+Provide management analytics and administrative interfaces.
+Use reusable components and a clean, scalable frontend architecture.
+Keep all current data interactions mock/local so the project works without a backend.
+3. Recommended Frontend Stack
+Layer
+Technology
+Framework
+Next.js with TypeScript
+Styling
+Tailwind CSS
+UI Components
+shadcn/ui
+Forms
+React Hook Form + Zod
+Charts
+Recharts
+Icons
+Lucide React
+Tables
+Reusable data table with sorting/filtering/pagination
+State
+React state/context; use a lightweight store only if necessary
+Images
+Next.js Image optimization
+Fonts
+Modern sans-serif such as Inter/Geist
+Mock Data
+Typed local JSON/TS data + mock service functions
+4. Visual Identity
+The interface must communicate TRUST, SAFETY, SECURITY and ACCOUNTABILITY. It should look like a premium government/public-service SaaS platform, not a generic CRUD dashboard.
+Primary visual direction: deep navy/police blue, white, slate neutrals and restrained muted-gold accents.
+Use red sparingly for critical alerts/errors and green for successful/resolved states.
+Use clean typography, generous spacing, cards, subtle shadows, professional icons and restrained animations.
+Avoid neon colors, excessive gradients, cartoon styling and excessive motion.
+Support light mode as the primary design. If implemented, dark mode should remain professional and accessible.
+5. Hero Visual Requirements
+The landing-page hero is a key visual element.
+Include a high-quality police station image.
+Include a police cap image as a recognizable law-enforcement/public-service symbol.
+Include a subtle secured firearm/law-enforcement visual, presented professionally and non-violently.
+Never show active firing, threatening poses, gore or violent scenes.
+Composition should feel cinematic and official: police station background, cap/desk foreground and subtle law-enforcement/security cues.
+Use responsive image cropping so the composition remains attractive on mobile.
+6. Landing Page
+Section
+Frontend Requirements
+Header
+Logo, Home, How It Works, Complaint Types, Track Complaint, Contact, Login, File Complaint CTA
+Hero
+Headline, supporting copy, File a Complaint CTA, Track Complaint CTA, police-themed imagery
+How It Works
+Register → Submit → Track → Resolution
+Complaint Categories
+Theft, Cyber Crime, Missing Person, Fraud, Harassment, Property, Traffic, Lost Documents, Other
+Trust Section
+Secure submission, transparent tracking, responsible handling
+Statistics
+Illustrative demo statistics clearly treated as non-production/demo data
+FAQ
+Common questions about submitting and tracking complaints
+Footer
+About, Contact, Privacy, Terms, Accessibility, emergency guidance
+7. Main User Roles
+Role
+Frontend Capabilities
+Citizen
+Submit complaints, view their mock complaints, track status, upload mock evidence, view notifications.
+Police Officer
+Review mock assigned complaints, investigate, update mock status/notes, view evidence.
+Station Admin
+View station workload, assign/reassign mock cases, manage officers and station-level dashboards.
+Super Admin
+View system-wide dashboard, manage mock stations/officers/categories and audit-log UI.
+8. Route Map
+/
+/login
+/register
+/complaint
+/track
+/dashboard
+/dashboard/complaints
+/dashboard/complaints/[id]
+/dashboard/profile
+/dashboard/notifications
+/police
+/police/complaints
+/police/complaints/[id]
+/police/investigations
+/police/profile
+/admin
+/admin/complaints
+/admin/officers
+/admin/stations
+/admin/categories
+/admin/reports
+/admin/audit-logs
+/admin/settings
+9. Citizen UI
+9.1 Registration
+Full Name
+Email
+Mobile Number
+Password
+Confirm Password
+Address
+City
+State
+PIN Code
+Terms/privacy checkbox
+9.2 Login
+Email/mobile
+Password
+Remember me
+Forgot password
+Create account
+9.3 Citizen Dashboard
+Welcome header
+Total complaints
+Pending
+Under Investigation
+Resolved
+Closed
+Recent complaints
+Quick actions: File Complaint, Track Complaint, Notifications
+9.4 My Complaints
+Search
+Status filter
+Category filter
+Date filter
+Complaint ID
+Category
+Station
+Date
+Status
+Last updated
+View details
+9.5 Complaint Details
+Complaint summary
+Incident details
+Police station
+Current status
+Status timeline
+Assigned officer display where appropriate
+Evidence list
+Updates
+Download acknowledgement UI
+10. Complaint Submission Wizard
+Use a polished multi-step wizard rather than one long form.
+Step
+UI Requirements
+Step 1
+Complaint category, subject, incident date/time, location, police station
+Step 2
+Complainant information
+Step 3
+Incident description, people involved, witnesses, suspect information if known, loss/damage
+Step 4
+Evidence uploader UI for images/PDF/audio/video with preview, progress and remove/retry
+Step 5
+Review complete complaint and confirmation checkbox
+Success
+Show Complaint ID, submission date, station, current status and actions to track/download acknowledgement
+11. Complaint Tracking UI
+Dedicated /track page.
+Complaint ID input and secondary verification input in the UI.
+Loading state while mock service resolves.
+Invalid complaint state.
+Success state with complaint summary.
+Visual vertical timeline: Submitted → Received → Verification → Assigned → Investigation → Resolution → Closed.
+Show only non-sensitive information in public-style tracking.
+12. Police Officer Dashboard
+Professional sidebar navigation.
+Top bar with search, notifications and profile.
+KPI cards: New Complaints, Pending Verification, Assigned Cases, Active Investigations, Resolved Cases, High Priority.
+Complaint queue with search, sorting, filters and pagination.
+Status and priority badges.
+Responsive complaint details workspace.
+Investigation notes panel with mock add/edit interactions.
+Evidence panel with safe previews.
+Status update modal with confirmation.
+13. Station Admin Dashboard
+Station-level KPI overview.
+Complaint workload by status.
+Officer workload cards/table.
+Assign/reassign modal.
+Station complaint queue.
+Resolution trend chart.
+Category distribution chart.
+Officer management table.
+14. Super Admin Dashboard
+System-wide KPI cards.
+Total complaints, pending, investigation, resolved, closed.
+Monthly complaint trend.
+Complaints by category.
+Complaints by police station.
+Resolution rate.
+Average resolution time as demo metric.
+Recent activity.
+Audit log table.
+15. Management Screens
+Screen
+Requirements
+Stations
+Search, filter, add/edit modal, status, station code, address, phone, station head
+Officers
+Name, employee ID, rank, station, role, status, assigned case count
+Categories
+Category name, description, active/inactive
+Reports
+Date range, filters, KPI summary, charts and export buttons as frontend interactions
+Audit Logs
+Actor, action, entity, timestamp, search and filters
+Settings
+Profile, UI preferences, notification preferences and mock system settings
+16. Reusable Components
+Navbar
+Sidebar
+Topbar
+DashboardCard
+StatCard
+ComplaintCard
+ComplaintTable
+StatusBadge
+PriorityBadge
+ComplaintTimeline
+FileUploader
+SearchBar
+FilterPanel
+DataTable
+Pagination
+Modal
+Drawer
+ConfirmDialog
+Toast
+NotificationDropdown
+ProfileMenu
+ChartCard
+EmptyState
+ErrorState
+LoadingSkeleton
+Breadcrumbs
+Stepper
+FormField
+DatePicker
+17. Design System
+Component
+Variants
+Buttons
+Primary, secondary, outline, ghost, destructive, loading
+Forms
+Label, input, select, textarea, date/time picker, validation message
+Status
+Submitted, Received, Verification, Assigned, Investigation, Info Required, Resolved, Rejected, Closed
+Priority
+Low, Medium, High, Critical
+Cards
+KPI, information, activity, chart, complaint
+Feedback
+Toast, alert, modal confirmation, inline validation
+Tables
+Responsive table on desktop; stacked cards/scrollable table on mobile
+18. Mock Data Architecture
+Do not hard-code data directly inside UI components. Create typed mock data and a mock service layer.
+Suggested structure:src/  app/  components/  features/    auth/    complaints/    police/    admin/  data/    mockUsers.ts    mockStations.ts    mockOfficers.ts    mockComplaints.ts    mockNotifications.ts  services/    mockAuthService.ts    mockComplaintService.ts    mockOfficerService.ts    mockAdminService.ts  types/  lib/  hooks/
+The service functions should return Promise-like results so they can later be replaced with real API calls without rewriting page components.
+19. Mock Complaint Lifecycle
+Citizen submits a mock complaint.
+Frontend generates a demo complaint ID.
+Complaint appears in citizen's complaint list.
+Police dashboard shows the complaint in its queue.
+Officer can simulate assignment/investigation/status updates.
+Citizen tracking page reflects the updated mock status.
+Every simulated status update appears in the timeline.
+20. UX States
+Initial/loading state
+Success state
+Empty state
+Validation error state
+Permission/role state
+Not found state
+Network-like mock failure state
+Upload error state
+Confirmation state
+Disabled/loading button state
+21. Responsive Requirements
+Mobile-first implementation.
+Citizen complaint form optimized for one-handed/mobile use.
+Desktop dashboards use sidebar + content layout.
+On mobile, sidebar becomes a drawer/bottom-friendly navigation.
+Tables must remain usable with responsive scrolling or card transformation.
+Charts resize without clipping.
+Hero imagery and text stack cleanly on small screens.
+22. Accessibility
+Semantic HTML.
+Keyboard navigation.
+Visible focus states.
+Proper form labels.
+Accessible modal behavior.
+Accessible status badges and timeline text.
+Minimum practical color contrast.
+Do not communicate important state by color alone.
+Respect reduced-motion preferences.
+23. Animation & Interaction
+Use subtle page/section reveal animations.
+Card hover elevation should be restrained.
+Timeline transitions may animate softly.
+Use skeletons instead of blocking spinners where possible.
+Respect prefers-reduced-motion.
+Avoid animation that delays task completion.
+24. Frontend Security/Privacy UX
+Never display passwords or tokens.
+Mask sensitive contact information where appropriate.
+Show clear session/logout controls.
+Evidence previews must not imply public access.
+Use confirmation for destructive/consequential actions.
+Clearly label demo/mock data so it cannot be mistaken for real police records.
+25. Frontend Performance
+Use Next.js image optimization.
+Lazy-load heavy images/charts where appropriate.
+Avoid unnecessary client components.
+Memoize expensive table/chart transformations where needed.
+Paginate mock tables to simulate production behavior.
+Keep reusable UI components lightweight.
+26. Frontend Testing
+Area
+Coverage
+Component
+Forms, modals, timeline, uploader, tables, badges
+Interaction
+Complaint submission, filtering, sorting, pagination, status updates
+E2E
+Citizen submission/tracking and officer/admin workflows
+Accessibility
+Keyboard and major form interaction checks
+Responsive
+Mobile/tablet/desktop critical screens
+27. Demo Data Requirements
+5+ police stations.
+15+ police officers.
+20+ citizens.
+50+ complaints.
+Mix of all complaint categories.
+Mix of all status and priority states.
+Realistic dates and station/officer relationships.
+No real personal information.
+28. Frontend Acceptance Criteria
+Landing page is polished and responsive.
+Hero contains police station, police cap and subtle non-violent law-enforcement/firearm imagery.
+Citizen can complete the entire complaint wizard using mock data.
+Successful submission produces a demo Complaint ID.
+Citizen dashboard displays realistic complaints and status information.
+Tracking page displays a clear complaint timeline.
+Police dashboard displays queues, filters, KPIs and complaint details.
+Officer can simulate assignment, investigation notes and status updates.
+Station Admin can simulate assignment/reassignment.
+Super Admin can view system-wide analytics and management pages.
+All pages use reusable components.
+No page depends on a backend server.
+Mock service layer is isolated from UI components.
+All important loading, empty, error and success states are implemented.
+Application works on mobile, tablet and desktop.
+Accessibility and reduced-motion considerations are implemented.
+Project includes setup README and clear replacement points for future APIs.
+29. Definition of Done
+Next.js + TypeScript project runs locally.
+Tailwind CSS and shadcn/ui design system implemented.
+Complete landing page.
+Citizen authentication screens.
+Citizen dashboard and complaint management.
+Multi-step complaint form.
+Complaint tracking.
+Police officer dashboard.
+Station Admin dashboard.
+Super Admin dashboard.
+Stations/officers/categories/report/audit-log UI.
+Mock service/data layer.
+Responsive navigation.
+Reusable components.
+Charts and analytics.
+Loading/empty/error/success states.
+Accessibility basics.
+Frontend tests for critical interactions.
+README with setup and architecture.
+30. AI Coding Agent Prompt
+Build the frontend described in this PRD as a complete, polished Next.js + TypeScript application. Do NOT create a backend, PostgreSQL database, FastAPI service, Docker backend or real API dependency. Use realistic typed mock data and an isolated mock service layer. The architecture must make it easy to replace mock services with REST APIs later.Prioritize visual quality and usability. Build the citizen complaint experience, police officer workspace, station-admin dashboard and super-admin dashboard as coherent products with shared design components. Implement responsive behavior, accessibility, validation, loading states, empty states, error states, confirmation dialogs, realistic charts and professional police/public-service branding.Use police station imagery, police cap imagery and a subtle, professional, non-violent firearm/law-enforcement visual in the hero. Do not depict active violence.Do not stop at a landing-page mockup. Implement all routes, screens and interactions specified in this PRD. Avoid putting large hard-coded datasets inside components. Keep data in typed mock files and business-like mock service functions. At the end, verify all critical user journeys and ensure the project runs without a backend.
+31. Final Frontend Flow
+Landing → Register/Login → Citizen Dashboard → File Complaint → Review → Submit → Complaint ID → Track → Police Queue → Officer Investigation → Status Update → Citizen Timeline → Resolution
+The final result should feel like a professional, portfolio-ready public-safety digital platform rather than a student CRUD dashboard.
