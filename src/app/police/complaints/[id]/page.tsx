@@ -13,9 +13,16 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label"
 import { mockComplaintService } from "@/services/mockComplaintService"
 import { mockAuthService } from "@/services/mockAuthService"
+import { mockComplaints } from "@/data/mockComplaints"
 import { Complaint, ComplaintStatus, User } from "@/types"
 import { toast } from "sonner"
 import { ArrowLeft, Calendar, MapPin, FileText, CheckCircle2, Paperclip, MessageSquare, AlertCircle } from "lucide-react"
+
+export function generateStaticParams() {
+  return mockComplaints.map((c) => ({
+    id: c.id,
+  }))
+}
 
 export default function OfficerWorkspace() {
   const params = useParams()

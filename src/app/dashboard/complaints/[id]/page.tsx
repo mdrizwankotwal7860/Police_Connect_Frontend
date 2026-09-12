@@ -9,8 +9,15 @@ import { StatusBadge } from "@/components/ui/status-badge"
 import { PriorityBadge } from "@/components/ui/priority-badge"
 import { mockComplaintService } from "@/services/mockComplaintService"
 import { mockAdminService } from "@/services/mockAdminService"
+import { mockComplaints } from "@/data/mockComplaints"
 import { Complaint, Station } from "@/types"
 import { ArrowLeft, Calendar, MapPin, FileText, CheckCircle2, Download, Paperclip } from "lucide-react"
+
+export function generateStaticParams() {
+  return mockComplaints.map((c) => ({
+    id: c.id,
+  }))
+}
 
 export default function ComplaintDetails() {
   const params = useParams()
