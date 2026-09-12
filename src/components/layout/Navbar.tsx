@@ -47,26 +47,26 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-4">
-            {/* Hamburger Button for Mobile */}
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="lg:hidden shrink-0 text-blue-900 hover:bg-blue-50"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-
             <Link href="/login" className="hidden lg:block">
               <Button variant="ghost" size="sm" className="text-blue-900 hover:text-blue-700 hover:bg-blue-50 font-semibold">Sign In</Button>
             </Link>
-            <Link href="/register" className="hidden md:block">
+            <Link href="/register" className="hidden lg:block">
               <Button size="sm" className="bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 text-white shadow-md border-0">Register</Button>
             </Link>
             
-            <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-full overflow-hidden shadow-sm shrink-0 border border-slate-200 bg-white ml-2">
+            <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-full overflow-hidden shadow-sm shrink-0 border border-slate-200 bg-white ml-1">
               <Image src={gunLogo} alt="Gun Right" fill className="object-cover" />
             </div>
+
+            {/* Hamburger Button for Mobile - Now on the far right */}
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="lg:hidden shrink-0 text-blue-900 hover:bg-blue-50 ml-1"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+            </Button>
           </div>
         </div>
 
