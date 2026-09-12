@@ -28,8 +28,8 @@ export default function StationAdminDashboard() {
         // Mock getting officers for this station
         // In reality, this would be an admin service call
         setOfficers([
-          { id: "usr_off_1", email: "officer1@policeconnect.gov", name: "Officer John Doe", role: "officer", stationId: currentUser.stationId },
-          { id: "usr_off_2", email: "officer2@policeconnect.gov", name: "Officer Jane Smith", role: "officer", stationId: currentUser.stationId }
+          { id: "usr_off_1", email: "officer1@policeconnect.gov", name: "Officer John Doe", role: "officer", stationId: currentUser.stationId, mobile: "555-010-0001", createdAt: new Date().toISOString() },
+          { id: "usr_off_2", email: "officer2@policeconnect.gov", name: "Officer Jane Smith", role: "officer", stationId: currentUser.stationId, mobile: "555-010-0002", createdAt: new Date().toISOString() }
         ])
       }
       setLoading(false)
