@@ -9,6 +9,9 @@ import { mockAuthService } from "@/services/mockAuthService"
 import { User } from "@/types"
 import { LayoutDashboard, FileText, Settings, LogOut, Menu, X, Users, Globe } from "lucide-react"
 
+// Statically import images so Next.js automatically applies the GitHub Pages basePath
+import gunLogo from "../../../public/images/gun-logo.png"
+import capLogo from "../../../public/images/cap-logo.png"
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const router = useRouter()
@@ -69,7 +72,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             </Button>
             
             <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-full overflow-hidden shadow-sm scale-x-[-1] shrink-0 border border-slate-200 bg-white hidden sm:block">
-              <Image src="/images/gun-logo.png" alt="Gun Left" fill className="object-cover" />
+              <Image src={gunLogo} alt="Gun Left" fill className="object-cover" />
             </div>
 
             <Link href="/" className="flex items-center">
@@ -82,7 +85,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           {/* MIDDLE: Big Police Cap */}
           <div className="flex justify-center shrink-0 z-10 -mt-2">
             <div className="relative h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 rounded-full overflow-hidden shadow-md bg-white border-2 border-slate-100 flex items-center justify-center">
-              <Image src="/images/cap-logo.png" alt="Police Cap" fill className="object-cover p-1" />
+              <Image src={capLogo} alt="Police Cap" fill className="object-cover p-1" />
             </div>
           </div>
 
@@ -94,7 +97,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             </div>
             
             <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-full overflow-hidden shadow-sm shrink-0 border border-slate-200 bg-white">
-              <Image src="/images/gun-logo.png" alt="Gun Right" fill className="object-cover" />
+              <Image src={gunLogo} alt="Gun Right" fill className="object-cover" />
             </div>
           </div>
         </div>

@@ -16,6 +16,9 @@ import {
   ChevronRight 
 } from "lucide-react"
 
+// Statically import images so Next.js automatically applies the GitHub Pages basePath
+import heroImage from "../../public/images/hero.png"
+
 export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -26,7 +29,7 @@ export default function LandingPage() {
         <section className="relative bg-slate-900 text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image 
-              src="/images/hero.png"
+              src={heroImage}
               alt="Police Station with Cap and Secure Cues" 
               fill
               className="object-cover opacity-30"
