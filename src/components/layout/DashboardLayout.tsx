@@ -67,36 +67,37 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           
           {/* FULL LEFT: Menu Toggle, Gun & Indian Police */}
           <div className="flex-1 flex items-center justify-start gap-2 sm:gap-4">
-            <Button variant="ghost" size="icon" className="lg:hidden shrink-0" onClick={() => setSidebarOpen(true)}>
-              <Menu className="h-6 w-6" />
+            <Button variant="ghost" size="icon" className="lg:hidden shrink-0 h-10 w-10 hover:bg-slate-100 rounded-md text-slate-900" onClick={() => setSidebarOpen(true)} aria-label="Open navigation menu">
+              <Menu className="h-8 w-8" />
             </Button>
             
-            <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-full overflow-hidden shadow-sm scale-x-[-1] shrink-0 border border-slate-200 bg-white hidden sm:block">
+            <div className="relative h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full overflow-hidden shadow-sm scale-x-[-1] shrink-0 border border-slate-200 bg-white">
               <Image src={gunLogo} alt="Gun Left" fill className="object-cover" />
             </div>
 
             <Link href="/" className="flex items-center">
-              <h2 className="text-lg md:text-2xl lg:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-700 to-amber-600 tracking-wider uppercase drop-shadow-sm leading-tight">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-700 to-amber-600 tracking-wider uppercase drop-shadow-sm leading-tight">
                 Indian Police
               </h2>
             </Link>
           </div>
 
-          {/* MIDDLE: Big Police Cap */}
-          <div className="flex justify-center shrink-0 z-10 -mt-2">
-            <div className="relative h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 rounded-full overflow-hidden shadow-md bg-white border-2 border-slate-100 flex items-center justify-center">
+          {/* MIDDLE: Big Police Cap (Hidden on Mobile) */}
+          <div className="hidden lg:flex justify-center shrink-0 z-10 -mt-2">
+            <div className="relative h-20 w-20 lg:h-24 lg:w-24 rounded-full overflow-hidden shadow-md bg-white border-2 border-slate-100 flex items-center justify-center">
               <Image src={capLogo} alt="Police Cap" fill className="object-cover p-1" />
             </div>
           </div>
 
           {/* FULL RIGHT: User Info & Gun */}
           <div className="flex-1 flex items-center justify-end gap-3 sm:gap-4">
-            <div className="hidden sm:flex flex-col items-end mr-2">
+            <div className="flex flex-col items-end mr-2">
               <span className="text-sm font-semibold text-slate-900">{user.name}</span>
               <span className="text-xs text-slate-500 capitalize">{user.role.replace('_', ' ')}</span>
             </div>
             
-            <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-full overflow-hidden shadow-sm shrink-0 border border-slate-200 bg-white">
+            {/* Right Gun (Hidden on Mobile) */}
+            <div className="hidden lg:block relative h-14 w-14 rounded-full overflow-hidden shadow-sm shrink-0 border border-slate-200 bg-white">
               <Image src={gunLogo} alt="Gun Right" fill className="object-cover" />
             </div>
           </div>
@@ -106,10 +107,10 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
       <div className="flex flex-1 overflow-hidden">
         {/* SIDEBAR */}
         <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-slate-900 text-slate-300 transform transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} flex flex-col border-r border-slate-800 shadow-xl`}>
-          <div className="h-20 flex items-center justify-between px-6 bg-slate-950 border-b border-slate-800 lg:hidden">
+          <div className="h-24 flex items-center justify-between px-6 bg-slate-950 border-b border-slate-800 lg:hidden">
             <span className="font-bold text-white tracking-wider">MENU</span>
-            <Button variant="ghost" size="icon" onClick={() => setSidebarOpen(false)} className="text-slate-400 hover:text-white">
-              <X className="h-5 w-5" />
+            <Button variant="ghost" size="icon" onClick={() => setSidebarOpen(false)} className="text-slate-400 hover:text-white rounded-full h-10 w-10">
+              <X className="h-6 w-6" />
             </Button>
           </div>
           
