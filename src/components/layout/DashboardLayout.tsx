@@ -63,41 +63,41 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-slate-50 flex flex-col">
       {/* HEADER */}
       <header className="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md shadow-sm">
-        <div className="container mx-auto flex h-24 items-center justify-between px-4 lg:px-8">
+        <div className="container mx-auto flex h-20 lg:h-24 items-center justify-between px-2 lg:px-8">
           
           {/* FULL LEFT: Menu Toggle, Gun & Indian Police */}
-          <div className="flex-1 flex items-center justify-start gap-2 sm:gap-4">
-            <Button variant="ghost" size="icon" className="lg:hidden shrink-0 h-10 w-10 hover:bg-slate-100 rounded-md text-slate-900" onClick={() => setSidebarOpen(true)} aria-label="Open navigation menu">
-              <Menu className="h-8 w-8" />
+          <div className="flex-1 flex items-center justify-start gap-1 lg:gap-4">
+            <Button variant="ghost" size="icon" className="lg:hidden shrink-0 h-9 w-9 hover:bg-slate-100 rounded-md text-slate-900" onClick={() => setSidebarOpen(true)} aria-label="Open navigation menu">
+              <Menu className="h-6 w-6" />
             </Button>
             
-            <div className="relative h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full overflow-hidden shadow-sm scale-x-[-1] shrink-0 border border-slate-200 bg-white">
+            <div className="relative h-7 w-7 sm:h-10 sm:w-10 lg:h-14 lg:w-14 rounded-full overflow-hidden shadow-sm scale-x-[-1] shrink-0 border border-slate-200 bg-white">
               <Image src={gunLogo} alt="Gun Left" fill className="object-cover" />
             </div>
 
             <Link href="/" className="flex items-center">
-              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-700 to-amber-600 tracking-wider uppercase drop-shadow-sm leading-tight">
+              <h2 className="text-xs sm:text-base lg:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-700 to-amber-600 tracking-wider uppercase drop-shadow-sm leading-tight ml-1 whitespace-nowrap">
                 Indian Police
               </h2>
             </Link>
           </div>
 
-          {/* MIDDLE: Big Police Cap (Hidden on Mobile) */}
-          <div className="hidden lg:flex justify-center shrink-0 z-10 -mt-2">
-            <div className="relative h-20 w-20 lg:h-24 lg:w-24 rounded-full overflow-hidden shadow-md bg-white border-2 border-slate-100 flex items-center justify-center">
-              <Image src={capLogo} alt="Police Cap" fill className="object-cover p-1" />
+          {/* MIDDLE: Big Police Cap */}
+          <div className="flex justify-center shrink-0 z-10 -mt-1 lg:-mt-2">
+            <div className="relative h-9 w-9 sm:h-14 sm:w-14 lg:h-24 lg:w-24 rounded-full overflow-hidden shadow-md bg-white border lg:border-2 border-slate-100 flex items-center justify-center">
+              <Image src={capLogo} alt="Police Cap" fill className="object-cover p-0.5 lg:p-1" />
             </div>
           </div>
 
           {/* FULL RIGHT: User Info & Gun */}
-          <div className="flex-1 flex items-center justify-end gap-3 sm:gap-4">
-            <div className="flex flex-col items-end mr-2">
-              <span className="text-sm font-semibold text-slate-900">{user.name}</span>
-              <span className="text-xs text-slate-500 capitalize">{user.role.replace('_', ' ')}</span>
+          <div className="flex-1 flex items-center justify-end gap-2 lg:gap-4">
+            <div className="flex flex-col items-end mr-1 lg:mr-2">
+              <span className="text-xs sm:text-sm font-semibold text-slate-900 whitespace-nowrap max-w-[80px] sm:max-w-none overflow-hidden text-ellipsis">{user.name}</span>
+              <span className="text-[10px] sm:text-xs text-slate-500 capitalize">{user.role.replace('_', ' ')}</span>
             </div>
             
-            {/* Right Gun (Hidden on Mobile) */}
-            <div className="hidden lg:block relative h-14 w-14 rounded-full overflow-hidden shadow-sm shrink-0 border border-slate-200 bg-white">
+            {/* Right Gun */}
+            <div className="relative h-7 w-7 sm:h-10 sm:w-10 lg:h-14 lg:w-14 rounded-full overflow-hidden shadow-sm shrink-0 border border-slate-200 bg-white">
               <Image src={gunLogo} alt="Gun Right" fill className="object-cover" />
             </div>
           </div>
