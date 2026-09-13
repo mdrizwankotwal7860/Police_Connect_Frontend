@@ -13,7 +13,11 @@ import {
   Lock, 
   Eye, 
   Scale, 
-  ChevronRight 
+  ChevronRight,
+  ArrowRight,
+  Users,
+  Zap,
+  BarChart3
 } from "lucide-react"
 
 // Statically import images so Next.js automatically applies the GitHub Pages basePath
@@ -26,7 +30,7 @@ export default function LandingPage() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative bg-slate-900 text-white overflow-hidden">
+        <section className="relative bg-slate-900 text-white overflow-hidden min-h-[600px] flex items-center">
           <div className="absolute inset-0 z-0">
             <Image 
               src={heroImage}
@@ -38,8 +42,8 @@ export default function LandingPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent" />
           </div>
           
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-24 lg:py-32 flex flex-col items-start text-left">
-            <Badge className="mb-6 bg-blue-900/50 text-blue-200 border-blue-800 hover:bg-blue-900/50 px-3 py-1 text-sm font-medium">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-16 lg:py-24 flex flex-col items-start text-left">
+            <Badge className="mb-6 bg-blue-900/50 text-blue-200 border-blue-800 px-3 py-1 text-sm font-medium">
               Official Public Safety Portal
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 max-w-3xl leading-tight">
@@ -48,18 +52,48 @@ export default function LandingPage() {
             <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
               File complaints online, track investigation progress in real-time, and help us maintain community safety through accountability.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-16 sm:mb-20">
               <Link href="/complaint" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto bg-blue-700 hover:bg-blue-600 text-white h-14 px-8 text-base">
+                <Button size="lg" className="w-full sm:w-auto bg-[#003399] hover:bg-[#002266] text-white h-14 px-8 text-base font-bold shadow-lg shadow-blue-900/20 group">
                   File a Complaint
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
               <Link href="/track" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto bg-slate-900/80 border-slate-500 text-white hover:bg-slate-800 hover:text-white h-14 px-8 text-base">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-slate-500 text-white hover:bg-slate-800 hover:text-white h-14 px-8 text-base font-bold">
                   Track Complaint
                 </Button>
               </Link>
             </div>
+
+            {/* Feature Icons Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-12 w-full max-w-3xl pt-8 border-t border-slate-700/50">
+              <div className="flex flex-col items-center sm:items-start gap-3 text-slate-300">
+                <ShieldCheck className="h-7 w-7 text-blue-400" />
+                <span className="text-sm font-semibold text-center sm:text-left leading-tight">Secure <br/>& Trusted</span>
+              </div>
+              <div className="flex flex-col items-center sm:items-start gap-3 text-slate-300">
+                <Users className="h-7 w-7 text-blue-400" />
+                <span className="text-sm font-semibold text-center sm:text-left leading-tight">Citizen <br/>Friendly</span>
+              </div>
+              <div className="flex flex-col items-center sm:items-start gap-3 text-slate-300">
+                <Zap className="h-7 w-7 text-blue-400" />
+                <span className="text-sm font-semibold text-center sm:text-left leading-tight">Faster <br/>Resolution</span>
+              </div>
+              <div className="flex flex-col items-center sm:items-start gap-3 text-slate-300">
+                <BarChart3 className="h-7 w-7 text-blue-400" />
+                <span className="text-sm font-semibold text-center sm:text-left leading-tight">Transparent <br/>Process</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Absolute positioned Trust Slogan for Desktop */}
+          <div className="hidden lg:flex absolute bottom-8 right-8 z-10 items-center gap-2 text-slate-400 text-sm font-medium">
+            <div className="flex flex-col gap-[3px] w-5">
+              <div className="h-[2px] bg-[#ff9933] rounded-full w-full"></div>
+              <div className="h-[2px] bg-[#138808] rounded-full w-full"></div>
+            </div>
+            Together for a Safer Tomorrow
           </div>
         </section>
 
